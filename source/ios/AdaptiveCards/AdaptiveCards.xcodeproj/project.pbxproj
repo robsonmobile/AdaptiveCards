@@ -70,6 +70,7 @@
 		5BFCE8401ED4ED7D002D461A /* AdaptiveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE83F1ED4ED7D002D461A /* AdaptiveCard.swift */; };
 		5BFCE8421ED4F691002D461A /* TextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE8411ED4F691002D461A /* TextBlock.swift */; };
 		5BFCE8441ED55191002D461A /* BaseCardElementVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE8431ED55191002D461A /* BaseCardElementVector.swift */; };
+		F464D7D91ED6263700C95800 /* InfoDisplayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464D7D81ED6263700C95800 /* InfoDisplayBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		5BFCE83F1ED4ED7D002D461A /* AdaptiveCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveCard.swift; sourceTree = "<group>"; };
 		5BFCE8411ED4F691002D461A /* TextBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextBlock.swift; sourceTree = "<group>"; };
 		5BFCE8431ED55191002D461A /* BaseCardElementVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCardElementVector.swift; sourceTree = "<group>"; };
+		F464D7D81ED6263700C95800 /* InfoDisplayBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoDisplayBuilder.swift; path = Renderer/InfoDisplayBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		5BFCE7B41ED35B07002D461A = {
 			isa = PBXGroup;
 			children = (
+				F464D7D81ED6263700C95800 /* InfoDisplayBuilder.swift */,
 				5BFCE83B1ED39C7E002D461A /* json-forwards.h */,
 				5BFCE83C1ED39C7E002D461A /* json.h */,
 				5BFCE8051ED39C66002D461A /* AdaptiveCard.h */,
@@ -379,6 +382,7 @@
 				5BFCE8041ED39C01002D461A /* TextBlock.cpp in Sources */,
 				5BFCE7CC1ED362CF002D461A /* Enums.swift in Sources */,
 				5BFCE7CA1ED35B53002D461A /* BaseAdaptiveCard.swift in Sources */,
+				F464D7D91ED6263700C95800 /* InfoDisplayBuilder.swift in Sources */,
 				5BFCE7CE1ED37E5C002D461A /* AdaptiveWrapper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,6 +555,7 @@
 				5BFCE7C81ED35B07002D461A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
