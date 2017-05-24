@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BFCE7C31ED35B07002D461A /* AdaptiveCards.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE7C11ED35B07002D461A /* AdaptiveCards.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BFCE7CA1ED35B53002D461A /* BaseAdaptiveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7C91ED35B53002D461A /* BaseAdaptiveCard.swift */; };
+		5BFCE7CC1ED362CF002D461A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7CB1ED362CF002D461A /* Enums.swift */; };
+		5BFCE7CE1ED37E5C002D461A /* AdaptiveWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7CD1ED37E5C002D461A /* AdaptiveWrapper.cpp */; };
+		5BFCE7D01ED385A9002D461A /* AdaptiveWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE7CF1ED3840B002D461A /* AdaptiveWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BFCE7EB1ED39C01002D461A /* AdaptiveCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D11ED39C01002D461A /* AdaptiveCard.cpp */; };
+		5BFCE7EC1ED39C01002D461A /* AdaptiveCardParseException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D21ED39C01002D461A /* AdaptiveCardParseException.cpp */; };
+		5BFCE7ED1ED39C01002D461A /* BaseActionElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D31ED39C01002D461A /* BaseActionElement.cpp */; };
+		5BFCE7EE1ED39C01002D461A /* BaseCardElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D41ED39C01002D461A /* BaseCardElement.cpp */; };
+		5BFCE7EF1ED39C01002D461A /* Column.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D51ED39C01002D461A /* Column.cpp */; };
+		5BFCE7F01ED39C01002D461A /* ColumnSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D61ED39C01002D461A /* ColumnSet.cpp */; };
+		5BFCE7F11ED39C01002D461A /* Container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D71ED39C01002D461A /* Container.cpp */; };
+		5BFCE7F21ED39C01002D461A /* Enums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D81ED39C01002D461A /* Enums.cpp */; };
+		5BFCE7F31ED39C01002D461A /* Fact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7D91ED39C01002D461A /* Fact.cpp */; };
+		5BFCE7F41ED39C01002D461A /* FactSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7DA1ED39C01002D461A /* FactSet.cpp */; };
+		5BFCE7F51ED39C01002D461A /* HttpAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7DB1ED39C01002D461A /* HttpAction.cpp */; };
+		5BFCE7F61ED39C01002D461A /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7DC1ED39C01002D461A /* Image.cpp */; };
+		5BFCE7F71ED39C01002D461A /* ImageSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7DD1ED39C01002D461A /* ImageSet.cpp */; };
+		5BFCE7F81ED39C01002D461A /* InputChoice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7DE1ED39C01002D461A /* InputChoice.cpp */; };
+		5BFCE7F91ED39C01002D461A /* InputChoiceSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7DF1ED39C01002D461A /* InputChoiceSet.cpp */; };
+		5BFCE7FA1ED39C01002D461A /* InputDate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E01ED39C01002D461A /* InputDate.cpp */; };
+		5BFCE7FB1ED39C01002D461A /* InputNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E11ED39C01002D461A /* InputNumber.cpp */; };
+		5BFCE7FC1ED39C01002D461A /* InputText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E21ED39C01002D461A /* InputText.cpp */; };
+		5BFCE7FD1ED39C01002D461A /* InputTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E31ED39C01002D461A /* InputTime.cpp */; };
+		5BFCE7FE1ED39C01002D461A /* InputToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E41ED39C01002D461A /* InputToggle.cpp */; };
+		5BFCE7FF1ED39C01002D461A /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E51ED39C01002D461A /* jsoncpp.cpp */; };
+		5BFCE8001ED39C01002D461A /* OpenUrlAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E61ED39C01002D461A /* OpenUrlAction.cpp */; };
+		5BFCE8011ED39C01002D461A /* ParseUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E71ED39C01002D461A /* ParseUtil.cpp */; };
+		5BFCE8021ED39C01002D461A /* ShowCardAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E81ED39C01002D461A /* ShowCardAction.cpp */; };
+		5BFCE8031ED39C01002D461A /* SubmitAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7E91ED39C01002D461A /* SubmitAction.cpp */; };
+		5BFCE8041ED39C01002D461A /* TextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE7EA1ED39C01002D461A /* TextBlock.cpp */; };
+		5BFCE8201ED39C66002D461A /* AdaptiveCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8051ED39C66002D461A /* AdaptiveCard.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8211ED39C66002D461A /* AdaptiveCardParseException.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8061ED39C66002D461A /* AdaptiveCardParseException.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8221ED39C66002D461A /* BaseActionElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8071ED39C66002D461A /* BaseActionElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8231ED39C66002D461A /* BaseCardElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8081ED39C66002D461A /* BaseCardElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8241ED39C66002D461A /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8091ED39C66002D461A /* Column.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8251ED39C66002D461A /* ColumnSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE80A1ED39C66002D461A /* ColumnSet.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8261ED39C66002D461A /* Container.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE80B1ED39C66002D461A /* Container.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8271ED39C66002D461A /* Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE80C1ED39C66002D461A /* Enums.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8281ED39C66002D461A /* Fact.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE80D1ED39C66002D461A /* Fact.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8291ED39C66002D461A /* FactSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE80E1ED39C66002D461A /* FactSet.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE82A1ED39C66002D461A /* HostOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE80F1ED39C66002D461A /* HostOptions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE82B1ED39C66002D461A /* HttpAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8101ED39C66002D461A /* HttpAction.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE82C1ED39C66002D461A /* Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8111ED39C66002D461A /* Image.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE82D1ED39C66002D461A /* ImageSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8121ED39C66002D461A /* ImageSet.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE82E1ED39C66002D461A /* InputChoice.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8131ED39C66002D461A /* InputChoice.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE82F1ED39C66002D461A /* InputChoiceSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8141ED39C66002D461A /* InputChoiceSet.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8301ED39C66002D461A /* InputDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8151ED39C66002D461A /* InputDate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8311ED39C66002D461A /* InputNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8161ED39C66002D461A /* InputNumber.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8321ED39C66002D461A /* InputText.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8171ED39C66002D461A /* InputText.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8331ED39C66002D461A /* InputTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8181ED39C66002D461A /* InputTime.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8341ED39C66002D461A /* InputToggle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE8191ED39C66002D461A /* InputToggle.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8351ED39C66002D461A /* OpenUrlAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE81A1ED39C66002D461A /* OpenUrlAction.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8361ED39C66002D461A /* ParseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE81B1ED39C66002D461A /* ParseUtil.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8371ED39C66002D461A /* pch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE81C1ED39C66002D461A /* pch.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8381ED39C66002D461A /* ShowCardAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE81D1ED39C66002D461A /* ShowCardAction.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8391ED39C66002D461A /* SubmitAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE81E1ED39C66002D461A /* SubmitAction.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE83A1ED39C66002D461A /* TextBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE81F1ED39C66002D461A /* TextBlock.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE83D1ED39C7E002D461A /* json-forwards.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE83B1ED39C7E002D461A /* json-forwards.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE83E1ED39C7E002D461A /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFCE83C1ED39C7E002D461A /* json.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5BFCE8401ED4ED7D002D461A /* AdaptiveCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE83F1ED4ED7D002D461A /* AdaptiveCard.swift */; };
+		5BFCE8421ED4F691002D461A /* TextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE8411ED4F691002D461A /* TextBlock.swift */; };
+		5BFCE8441ED55191002D461A /* BaseCardElementVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCE8431ED55191002D461A /* BaseCardElementVector.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5BFCE7BE1ED35B07002D461A /* AdaptiveCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdaptiveCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BFCE7C11ED35B07002D461A /* AdaptiveCards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptiveCards.h; sourceTree = "<group>"; };
+		5BFCE7C21ED35B07002D461A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BFCE7C91ED35B53002D461A /* BaseAdaptiveCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAdaptiveCard.swift; sourceTree = "<group>"; };
+		5BFCE7CB1ED362CF002D461A /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		5BFCE7CD1ED37E5C002D461A /* AdaptiveWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AdaptiveWrapper.cpp; sourceTree = "<group>"; };
+		5BFCE7CF1ED3840B002D461A /* AdaptiveWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptiveWrapper.h; sourceTree = "<group>"; };
+		5BFCE7D11ED39C01002D461A /* AdaptiveCard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AdaptiveCard.cpp; path = ../../shared/cpp/ObjectModel/AdaptiveCard.cpp; sourceTree = "<group>"; };
+		5BFCE7D21ED39C01002D461A /* AdaptiveCardParseException.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AdaptiveCardParseException.cpp; path = ../../shared/cpp/ObjectModel/AdaptiveCardParseException.cpp; sourceTree = "<group>"; };
+		5BFCE7D31ED39C01002D461A /* BaseActionElement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BaseActionElement.cpp; path = ../../shared/cpp/ObjectModel/BaseActionElement.cpp; sourceTree = "<group>"; };
+		5BFCE7D41ED39C01002D461A /* BaseCardElement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BaseCardElement.cpp; path = ../../shared/cpp/ObjectModel/BaseCardElement.cpp; sourceTree = "<group>"; };
+		5BFCE7D51ED39C01002D461A /* Column.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Column.cpp; path = ../../shared/cpp/ObjectModel/Column.cpp; sourceTree = "<group>"; };
+		5BFCE7D61ED39C01002D461A /* ColumnSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ColumnSet.cpp; path = ../../shared/cpp/ObjectModel/ColumnSet.cpp; sourceTree = "<group>"; };
+		5BFCE7D71ED39C01002D461A /* Container.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Container.cpp; path = ../../shared/cpp/ObjectModel/Container.cpp; sourceTree = "<group>"; };
+		5BFCE7D81ED39C01002D461A /* Enums.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Enums.cpp; path = ../../shared/cpp/ObjectModel/Enums.cpp; sourceTree = "<group>"; };
+		5BFCE7D91ED39C01002D461A /* Fact.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Fact.cpp; path = ../../shared/cpp/ObjectModel/Fact.cpp; sourceTree = "<group>"; };
+		5BFCE7DA1ED39C01002D461A /* FactSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FactSet.cpp; path = ../../shared/cpp/ObjectModel/FactSet.cpp; sourceTree = "<group>"; };
+		5BFCE7DB1ED39C01002D461A /* HttpAction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HttpAction.cpp; path = ../../shared/cpp/ObjectModel/HttpAction.cpp; sourceTree = "<group>"; };
+		5BFCE7DC1ED39C01002D461A /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Image.cpp; path = ../../shared/cpp/ObjectModel/Image.cpp; sourceTree = "<group>"; };
+		5BFCE7DD1ED39C01002D461A /* ImageSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ImageSet.cpp; path = ../../shared/cpp/ObjectModel/ImageSet.cpp; sourceTree = "<group>"; };
+		5BFCE7DE1ED39C01002D461A /* InputChoice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputChoice.cpp; path = ../../shared/cpp/ObjectModel/InputChoice.cpp; sourceTree = "<group>"; };
+		5BFCE7DF1ED39C01002D461A /* InputChoiceSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputChoiceSet.cpp; path = ../../shared/cpp/ObjectModel/InputChoiceSet.cpp; sourceTree = "<group>"; };
+		5BFCE7E01ED39C01002D461A /* InputDate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputDate.cpp; path = ../../shared/cpp/ObjectModel/InputDate.cpp; sourceTree = "<group>"; };
+		5BFCE7E11ED39C01002D461A /* InputNumber.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputNumber.cpp; path = ../../shared/cpp/ObjectModel/InputNumber.cpp; sourceTree = "<group>"; };
+		5BFCE7E21ED39C01002D461A /* InputText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputText.cpp; path = ../../shared/cpp/ObjectModel/InputText.cpp; sourceTree = "<group>"; };
+		5BFCE7E31ED39C01002D461A /* InputTime.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputTime.cpp; path = ../../shared/cpp/ObjectModel/InputTime.cpp; sourceTree = "<group>"; };
+		5BFCE7E41ED39C01002D461A /* InputToggle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputToggle.cpp; path = ../../shared/cpp/ObjectModel/InputToggle.cpp; sourceTree = "<group>"; };
+		5BFCE7E51ED39C01002D461A /* jsoncpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = jsoncpp.cpp; path = ../../shared/cpp/ObjectModel/jsoncpp.cpp; sourceTree = "<group>"; };
+		5BFCE7E61ED39C01002D461A /* OpenUrlAction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = OpenUrlAction.cpp; path = ../../shared/cpp/ObjectModel/OpenUrlAction.cpp; sourceTree = "<group>"; };
+		5BFCE7E71ED39C01002D461A /* ParseUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ParseUtil.cpp; path = ../../shared/cpp/ObjectModel/ParseUtil.cpp; sourceTree = "<group>"; };
+		5BFCE7E81ED39C01002D461A /* ShowCardAction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ShowCardAction.cpp; path = ../../shared/cpp/ObjectModel/ShowCardAction.cpp; sourceTree = "<group>"; };
+		5BFCE7E91ED39C01002D461A /* SubmitAction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SubmitAction.cpp; path = ../../shared/cpp/ObjectModel/SubmitAction.cpp; sourceTree = "<group>"; };
+		5BFCE7EA1ED39C01002D461A /* TextBlock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = TextBlock.cpp; path = ../../shared/cpp/ObjectModel/TextBlock.cpp; sourceTree = "<group>"; };
+		5BFCE8051ED39C66002D461A /* AdaptiveCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AdaptiveCard.h; path = ../../shared/cpp/ObjectModel/AdaptiveCard.h; sourceTree = "<group>"; };
+		5BFCE8061ED39C66002D461A /* AdaptiveCardParseException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AdaptiveCardParseException.h; path = ../../shared/cpp/ObjectModel/AdaptiveCardParseException.h; sourceTree = "<group>"; };
+		5BFCE8071ED39C66002D461A /* BaseActionElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseActionElement.h; path = ../../shared/cpp/ObjectModel/BaseActionElement.h; sourceTree = "<group>"; };
+		5BFCE8081ED39C66002D461A /* BaseCardElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseCardElement.h; path = ../../shared/cpp/ObjectModel/BaseCardElement.h; sourceTree = "<group>"; };
+		5BFCE8091ED39C66002D461A /* Column.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Column.h; path = ../../shared/cpp/ObjectModel/Column.h; sourceTree = "<group>"; };
+		5BFCE80A1ED39C66002D461A /* ColumnSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ColumnSet.h; path = ../../shared/cpp/ObjectModel/ColumnSet.h; sourceTree = "<group>"; };
+		5BFCE80B1ED39C66002D461A /* Container.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Container.h; path = ../../shared/cpp/ObjectModel/Container.h; sourceTree = "<group>"; };
+		5BFCE80C1ED39C66002D461A /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = ../../shared/cpp/ObjectModel/Enums.h; sourceTree = "<group>"; };
+		5BFCE80D1ED39C66002D461A /* Fact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Fact.h; path = ../../shared/cpp/ObjectModel/Fact.h; sourceTree = "<group>"; };
+		5BFCE80E1ED39C66002D461A /* FactSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FactSet.h; path = ../../shared/cpp/ObjectModel/FactSet.h; sourceTree = "<group>"; };
+		5BFCE80F1ED39C66002D461A /* HostOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HostOptions.h; path = ../../shared/cpp/ObjectModel/HostOptions.h; sourceTree = "<group>"; };
+		5BFCE8101ED39C66002D461A /* HttpAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HttpAction.h; path = ../../shared/cpp/ObjectModel/HttpAction.h; sourceTree = "<group>"; };
+		5BFCE8111ED39C66002D461A /* Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Image.h; path = ../../shared/cpp/ObjectModel/Image.h; sourceTree = "<group>"; };
+		5BFCE8121ED39C66002D461A /* ImageSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImageSet.h; path = ../../shared/cpp/ObjectModel/ImageSet.h; sourceTree = "<group>"; };
+		5BFCE8131ED39C66002D461A /* InputChoice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputChoice.h; path = ../../shared/cpp/ObjectModel/InputChoice.h; sourceTree = "<group>"; };
+		5BFCE8141ED39C66002D461A /* InputChoiceSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputChoiceSet.h; path = ../../shared/cpp/ObjectModel/InputChoiceSet.h; sourceTree = "<group>"; };
+		5BFCE8151ED39C66002D461A /* InputDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputDate.h; path = ../../shared/cpp/ObjectModel/InputDate.h; sourceTree = "<group>"; };
+		5BFCE8161ED39C66002D461A /* InputNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputNumber.h; path = ../../shared/cpp/ObjectModel/InputNumber.h; sourceTree = "<group>"; };
+		5BFCE8171ED39C66002D461A /* InputText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputText.h; path = ../../shared/cpp/ObjectModel/InputText.h; sourceTree = "<group>"; };
+		5BFCE8181ED39C66002D461A /* InputTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputTime.h; path = ../../shared/cpp/ObjectModel/InputTime.h; sourceTree = "<group>"; };
+		5BFCE8191ED39C66002D461A /* InputToggle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InputToggle.h; path = ../../shared/cpp/ObjectModel/InputToggle.h; sourceTree = "<group>"; };
+		5BFCE81A1ED39C66002D461A /* OpenUrlAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OpenUrlAction.h; path = ../../shared/cpp/ObjectModel/OpenUrlAction.h; sourceTree = "<group>"; };
+		5BFCE81B1ED39C66002D461A /* ParseUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ParseUtil.h; path = ../../shared/cpp/ObjectModel/ParseUtil.h; sourceTree = "<group>"; };
+		5BFCE81C1ED39C66002D461A /* pch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = pch.h; path = ../../shared/cpp/ObjectModel/pch.h; sourceTree = "<group>"; };
+		5BFCE81D1ED39C66002D461A /* ShowCardAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShowCardAction.h; path = ../../shared/cpp/ObjectModel/ShowCardAction.h; sourceTree = "<group>"; };
+		5BFCE81E1ED39C66002D461A /* SubmitAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubmitAction.h; path = ../../shared/cpp/ObjectModel/SubmitAction.h; sourceTree = "<group>"; };
+		5BFCE81F1ED39C66002D461A /* TextBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TextBlock.h; path = ../../shared/cpp/ObjectModel/TextBlock.h; sourceTree = "<group>"; };
+		5BFCE83B1ED39C7E002D461A /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "json-forwards.h"; path = "../../shared/cpp/ObjectModel/json/json-forwards.h"; sourceTree = "<group>"; };
+		5BFCE83C1ED39C7E002D461A /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = json.h; path = ../../shared/cpp/ObjectModel/json/json.h; sourceTree = "<group>"; };
+		5BFCE83F1ED4ED7D002D461A /* AdaptiveCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveCard.swift; sourceTree = "<group>"; };
+		5BFCE8411ED4F691002D461A /* TextBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextBlock.swift; sourceTree = "<group>"; };
+		5BFCE8431ED55191002D461A /* BaseCardElementVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCardElementVector.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BFCE7BA1ED35B07002D461A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BFCE7B41ED35B07002D461A = {
+			isa = PBXGroup;
+			children = (
+				5BFCE83B1ED39C7E002D461A /* json-forwards.h */,
+				5BFCE83C1ED39C7E002D461A /* json.h */,
+				5BFCE8051ED39C66002D461A /* AdaptiveCard.h */,
+				5BFCE8061ED39C66002D461A /* AdaptiveCardParseException.h */,
+				5BFCE8071ED39C66002D461A /* BaseActionElement.h */,
+				5BFCE8081ED39C66002D461A /* BaseCardElement.h */,
+				5BFCE8091ED39C66002D461A /* Column.h */,
+				5BFCE80A1ED39C66002D461A /* ColumnSet.h */,
+				5BFCE80B1ED39C66002D461A /* Container.h */,
+				5BFCE80C1ED39C66002D461A /* Enums.h */,
+				5BFCE80D1ED39C66002D461A /* Fact.h */,
+				5BFCE80E1ED39C66002D461A /* FactSet.h */,
+				5BFCE80F1ED39C66002D461A /* HostOptions.h */,
+				5BFCE8101ED39C66002D461A /* HttpAction.h */,
+				5BFCE8111ED39C66002D461A /* Image.h */,
+				5BFCE8121ED39C66002D461A /* ImageSet.h */,
+				5BFCE8131ED39C66002D461A /* InputChoice.h */,
+				5BFCE8141ED39C66002D461A /* InputChoiceSet.h */,
+				5BFCE8151ED39C66002D461A /* InputDate.h */,
+				5BFCE8161ED39C66002D461A /* InputNumber.h */,
+				5BFCE8171ED39C66002D461A /* InputText.h */,
+				5BFCE8181ED39C66002D461A /* InputTime.h */,
+				5BFCE8191ED39C66002D461A /* InputToggle.h */,
+				5BFCE81A1ED39C66002D461A /* OpenUrlAction.h */,
+				5BFCE81B1ED39C66002D461A /* ParseUtil.h */,
+				5BFCE81C1ED39C66002D461A /* pch.h */,
+				5BFCE81D1ED39C66002D461A /* ShowCardAction.h */,
+				5BFCE81E1ED39C66002D461A /* SubmitAction.h */,
+				5BFCE81F1ED39C66002D461A /* TextBlock.h */,
+				5BFCE7D11ED39C01002D461A /* AdaptiveCard.cpp */,
+				5BFCE7D21ED39C01002D461A /* AdaptiveCardParseException.cpp */,
+				5BFCE7D31ED39C01002D461A /* BaseActionElement.cpp */,
+				5BFCE7D41ED39C01002D461A /* BaseCardElement.cpp */,
+				5BFCE7D51ED39C01002D461A /* Column.cpp */,
+				5BFCE7D61ED39C01002D461A /* ColumnSet.cpp */,
+				5BFCE7D71ED39C01002D461A /* Container.cpp */,
+				5BFCE7D81ED39C01002D461A /* Enums.cpp */,
+				5BFCE7D91ED39C01002D461A /* Fact.cpp */,
+				5BFCE7DA1ED39C01002D461A /* FactSet.cpp */,
+				5BFCE7DB1ED39C01002D461A /* HttpAction.cpp */,
+				5BFCE7DC1ED39C01002D461A /* Image.cpp */,
+				5BFCE7DD1ED39C01002D461A /* ImageSet.cpp */,
+				5BFCE7DE1ED39C01002D461A /* InputChoice.cpp */,
+				5BFCE7DF1ED39C01002D461A /* InputChoiceSet.cpp */,
+				5BFCE7E01ED39C01002D461A /* InputDate.cpp */,
+				5BFCE7E11ED39C01002D461A /* InputNumber.cpp */,
+				5BFCE7E21ED39C01002D461A /* InputText.cpp */,
+				5BFCE7E31ED39C01002D461A /* InputTime.cpp */,
+				5BFCE7E41ED39C01002D461A /* InputToggle.cpp */,
+				5BFCE7E51ED39C01002D461A /* jsoncpp.cpp */,
+				5BFCE7E61ED39C01002D461A /* OpenUrlAction.cpp */,
+				5BFCE7E71ED39C01002D461A /* ParseUtil.cpp */,
+				5BFCE7E81ED39C01002D461A /* ShowCardAction.cpp */,
+				5BFCE7E91ED39C01002D461A /* SubmitAction.cpp */,
+				5BFCE7EA1ED39C01002D461A /* TextBlock.cpp */,
+				5BFCE7C01ED35B07002D461A /* AdaptiveCards */,
+				5BFCE7BF1ED35B07002D461A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5BFCE7BF1ED35B07002D461A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BFCE7BE1ED35B07002D461A /* AdaptiveCards.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BFCE7C01ED35B07002D461A /* AdaptiveCards */ = {
+			isa = PBXGroup;
+			children = (
+				5BFCE7C11ED35B07002D461A /* AdaptiveCards.h */,
+				5BFCE7C21ED35B07002D461A /* Info.plist */,
+				5BFCE7C91ED35B53002D461A /* BaseAdaptiveCard.swift */,
+				5BFCE7CB1ED362CF002D461A /* Enums.swift */,
+				5BFCE7CD1ED37E5C002D461A /* AdaptiveWrapper.cpp */,
+				5BFCE7CF1ED3840B002D461A /* AdaptiveWrapper.h */,
+				5BFCE83F1ED4ED7D002D461A /* AdaptiveCard.swift */,
+				5BFCE8411ED4F691002D461A /* TextBlock.swift */,
+				5BFCE8431ED55191002D461A /* BaseCardElementVector.swift */,
+			);
+			path = AdaptiveCards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5BFCE7BB1ED35B07002D461A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFCE7C31ED35B07002D461A /* AdaptiveCards.h in Headers */,
+				5BFCE7D01ED385A9002D461A /* AdaptiveWrapper.h in Headers */,
+				5BFCE83D1ED39C7E002D461A /* json-forwards.h in Headers */,
+				5BFCE83E1ED39C7E002D461A /* json.h in Headers */,
+				5BFCE8201ED39C66002D461A /* AdaptiveCard.h in Headers */,
+				5BFCE8211ED39C66002D461A /* AdaptiveCardParseException.h in Headers */,
+				5BFCE8221ED39C66002D461A /* BaseActionElement.h in Headers */,
+				5BFCE8231ED39C66002D461A /* BaseCardElement.h in Headers */,
+				5BFCE8241ED39C66002D461A /* Column.h in Headers */,
+				5BFCE8251ED39C66002D461A /* ColumnSet.h in Headers */,
+				5BFCE8261ED39C66002D461A /* Container.h in Headers */,
+				5BFCE8271ED39C66002D461A /* Enums.h in Headers */,
+				5BFCE8281ED39C66002D461A /* Fact.h in Headers */,
+				5BFCE8291ED39C66002D461A /* FactSet.h in Headers */,
+				5BFCE82A1ED39C66002D461A /* HostOptions.h in Headers */,
+				5BFCE82B1ED39C66002D461A /* HttpAction.h in Headers */,
+				5BFCE82C1ED39C66002D461A /* Image.h in Headers */,
+				5BFCE82D1ED39C66002D461A /* ImageSet.h in Headers */,
+				5BFCE82E1ED39C66002D461A /* InputChoice.h in Headers */,
+				5BFCE82F1ED39C66002D461A /* InputChoiceSet.h in Headers */,
+				5BFCE8301ED39C66002D461A /* InputDate.h in Headers */,
+				5BFCE8311ED39C66002D461A /* InputNumber.h in Headers */,
+				5BFCE8321ED39C66002D461A /* InputText.h in Headers */,
+				5BFCE8331ED39C66002D461A /* InputTime.h in Headers */,
+				5BFCE8341ED39C66002D461A /* InputToggle.h in Headers */,
+				5BFCE8351ED39C66002D461A /* OpenUrlAction.h in Headers */,
+				5BFCE8361ED39C66002D461A /* ParseUtil.h in Headers */,
+				5BFCE8371ED39C66002D461A /* pch.h in Headers */,
+				5BFCE8381ED39C66002D461A /* ShowCardAction.h in Headers */,
+				5BFCE8391ED39C66002D461A /* SubmitAction.h in Headers */,
+				5BFCE83A1ED39C66002D461A /* TextBlock.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5BFCE7BD1ED35B07002D461A /* AdaptiveCards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BFCE7C61ED35B07002D461A /* Build configuration list for PBXNativeTarget "AdaptiveCards" */;
+			buildPhases = (
+				5BFCE7B91ED35B07002D461A /* Sources */,
+				5BFCE7BA1ED35B07002D461A /* Frameworks */,
+				5BFCE7BB1ED35B07002D461A /* Headers */,
+				5BFCE7BC1ED35B07002D461A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdaptiveCards;
+			productName = AdaptiveCards;
+			productReference = 5BFCE7BE1ED35B07002D461A /* AdaptiveCards.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BFCE7B51ED35B07002D461A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					5BFCE7BD1ED35B07002D461A = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5BFCE7B81ED35B07002D461A /* Build configuration list for PBXProject "AdaptiveCards" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5BFCE7B41ED35B07002D461A;
+			productRefGroup = 5BFCE7BF1ED35B07002D461A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BFCE7BD1ED35B07002D461A /* AdaptiveCards */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BFCE7BC1ED35B07002D461A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BFCE7B91ED35B07002D461A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFCE7EB1ED39C01002D461A /* AdaptiveCard.cpp in Sources */,
+				5BFCE7EC1ED39C01002D461A /* AdaptiveCardParseException.cpp in Sources */,
+				5BFCE7ED1ED39C01002D461A /* BaseActionElement.cpp in Sources */,
+				5BFCE7EE1ED39C01002D461A /* BaseCardElement.cpp in Sources */,
+				5BFCE7EF1ED39C01002D461A /* Column.cpp in Sources */,
+				5BFCE7F01ED39C01002D461A /* ColumnSet.cpp in Sources */,
+				5BFCE7F11ED39C01002D461A /* Container.cpp in Sources */,
+				5BFCE7F21ED39C01002D461A /* Enums.cpp in Sources */,
+				5BFCE8441ED55191002D461A /* BaseCardElementVector.swift in Sources */,
+				5BFCE7F31ED39C01002D461A /* Fact.cpp in Sources */,
+				5BFCE7F41ED39C01002D461A /* FactSet.cpp in Sources */,
+				5BFCE7F51ED39C01002D461A /* HttpAction.cpp in Sources */,
+				5BFCE7F61ED39C01002D461A /* Image.cpp in Sources */,
+				5BFCE7F71ED39C01002D461A /* ImageSet.cpp in Sources */,
+				5BFCE7F81ED39C01002D461A /* InputChoice.cpp in Sources */,
+				5BFCE7F91ED39C01002D461A /* InputChoiceSet.cpp in Sources */,
+				5BFCE7FA1ED39C01002D461A /* InputDate.cpp in Sources */,
+				5BFCE7FB1ED39C01002D461A /* InputNumber.cpp in Sources */,
+				5BFCE8401ED4ED7D002D461A /* AdaptiveCard.swift in Sources */,
+				5BFCE7FC1ED39C01002D461A /* InputText.cpp in Sources */,
+				5BFCE7FD1ED39C01002D461A /* InputTime.cpp in Sources */,
+				5BFCE7FE1ED39C01002D461A /* InputToggle.cpp in Sources */,
+				5BFCE7FF1ED39C01002D461A /* jsoncpp.cpp in Sources */,
+				5BFCE8001ED39C01002D461A /* OpenUrlAction.cpp in Sources */,
+				5BFCE8011ED39C01002D461A /* ParseUtil.cpp in Sources */,
+				5BFCE8421ED4F691002D461A /* TextBlock.swift in Sources */,
+				5BFCE8021ED39C01002D461A /* ShowCardAction.cpp in Sources */,
+				5BFCE8031ED39C01002D461A /* SubmitAction.cpp in Sources */,
+				5BFCE8041ED39C01002D461A /* TextBlock.cpp in Sources */,
+				5BFCE7CC1ED362CF002D461A /* Enums.swift in Sources */,
+				5BFCE7CA1ED35B53002D461A /* BaseAdaptiveCard.swift in Sources */,
+				5BFCE7CE1ED37E5C002D461A /* AdaptiveWrapper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5BFCE7C41ED35B07002D461A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5BFCE7C51ED35B07002D461A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5BFCE7C71ED35B07002D461A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				INFOPLIST_FILE = AdaptiveCards/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.AdaptiveCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5BFCE7C81ED35B07002D461A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				INFOPLIST_FILE = AdaptiveCards/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.AdaptiveCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BFCE7B81ED35B07002D461A /* Build configuration list for PBXProject "AdaptiveCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BFCE7C41ED35B07002D461A /* Debug */,
+				5BFCE7C51ED35B07002D461A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BFCE7C61ED35B07002D461A /* Build configuration list for PBXNativeTarget "AdaptiveCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BFCE7C71ED35B07002D461A /* Debug */,
+				5BFCE7C81ED35B07002D461A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BFCE7B51ED35B07002D461A /* Project object */;
+}
