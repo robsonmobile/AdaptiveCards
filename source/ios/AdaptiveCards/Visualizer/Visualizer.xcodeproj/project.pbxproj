@@ -15,6 +15,7 @@
 		F464D7F41ED62ED900C95800 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F464D7F21ED62ED900C95800 /* LaunchScreen.storyboard */; };
 		F464D7FF1ED62ED900C95800 /* VisualizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464D7FE1ED62ED900C95800 /* VisualizerTests.swift */; };
 		F464D80A1ED62ED900C95800 /* VisualizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464D8091ED62ED900C95800 /* VisualizerUITests.swift */; };
+		F4BF50371ED63BB9000E87D9 /* AdaptiveCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BF50361ED63BB9000E87D9 /* AdaptiveCards.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F464D8051ED62ED900C95800 /* VisualizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisualizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F464D8091ED62ED900C95800 /* VisualizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerUITests.swift; sourceTree = "<group>"; };
 		F464D80B1ED62ED900C95800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4BF50361ED63BB9000E87D9 /* AdaptiveCards.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveCards.framework; path = "../build/Debug-iphoneos/AdaptiveCards.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4BF50371ED63BB9000E87D9 /* AdaptiveCards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 				F464D7FD1ED62ED900C95800 /* VisualizerTests */,
 				F464D8081ED62ED900C95800 /* VisualizerUITests */,
 				F464D7E41ED62ED900C95800 /* Products */,
+				F4BF50351ED63BB9000E87D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +130,14 @@
 				F464D80B1ED62ED900C95800 /* Info.plist */,
 			);
 			path = VisualizerUITests;
+			sourceTree = "<group>";
+		};
+		F4BF50351ED63BB9000E87D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4BF50361ED63BB9000E87D9 /* AdaptiveCards.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +521,7 @@
 				F464D8101ED62ED900C95800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F464D8111ED62ED900C95800 /* Build configuration list for PBXNativeTarget "VisualizerTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +530,7 @@
 				F464D8131ED62ED900C95800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F464D8141ED62ED900C95800 /* Build configuration list for PBXNativeTarget "VisualizerUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +539,7 @@
 				F464D8161ED62ED900C95800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
