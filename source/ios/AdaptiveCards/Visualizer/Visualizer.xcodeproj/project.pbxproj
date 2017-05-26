@@ -16,6 +16,7 @@
 		F464D7FF1ED62ED900C95800 /* VisualizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464D7FE1ED62ED900C95800 /* VisualizerTests.swift */; };
 		F464D80A1ED62ED900C95800 /* VisualizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464D8091ED62ED900C95800 /* VisualizerUITests.swift */; };
 		F4BF50371ED63BB9000E87D9 /* AdaptiveCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BF50361ED63BB9000E87D9 /* AdaptiveCards.framework */; };
+		F4BF50391ED7859D000E87D9 /* InfoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BF50381ED7859D000E87D9 /* InfoMainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F464D8091ED62ED900C95800 /* VisualizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizerUITests.swift; sourceTree = "<group>"; };
 		F464D80B1ED62ED900C95800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4BF50361ED63BB9000E87D9 /* AdaptiveCards.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdaptiveCards.framework; path = "../build/Debug-iphoneos/AdaptiveCards.framework"; sourceTree = "<group>"; };
+		F4BF50381ED7859D000E87D9 /* InfoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoMainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				F464D7F21ED62ED900C95800 /* LaunchScreen.storyboard */,
 				F464D7F51ED62ED900C95800 /* Info.plist */,
 				F464D7ED1ED62ED900C95800 /* Visualizer.xcdatamodeld */,
+				F4BF50381ED7859D000E87D9 /* InfoMainViewController.swift */,
 			);
 			path = Visualizer;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				F464D7E91ED62ED900C95800 /* ViewController.swift in Sources */,
 				F464D7EF1ED62ED900C95800 /* Visualizer.xcdatamodeld in Sources */,
 				F464D7E71ED62ED900C95800 /* AppDelegate.swift in Sources */,
+				F4BF50391ED7859D000E87D9 /* InfoMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
