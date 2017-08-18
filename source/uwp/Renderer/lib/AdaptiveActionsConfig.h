@@ -32,9 +32,6 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         IFACEMETHODIMP get_MaxActions(_Out_ UINT32 *value);
         IFACEMETHODIMP put_MaxActions(_In_ UINT32 value);
 
-        IFACEMETHODIMP get_Separation(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparationConfig** separationConfig);
-        IFACEMETHODIMP put_Separation(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparationConfig* separationConfig);
-
     private:
         AdaptiveCards::ActionsConfig m_sharedActionsConfig;
     };

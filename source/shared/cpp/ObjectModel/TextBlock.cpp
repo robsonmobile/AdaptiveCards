@@ -15,7 +15,9 @@ TextBlock::TextBlock() :
 {
 }
 
-TextBlock::TextBlock(SeparationStyle separationStyle,
+TextBlock::TextBlock(
+    Spacing spacing,
+    std::shared_ptr<Separator> separator,
     std::string speak,
     std::string text,
     TextSize textSize,
@@ -25,7 +27,7 @@ TextBlock::TextBlock(SeparationStyle separationStyle,
     bool wrap,
     int maxLines,
     HorizontalAlignment hAlignment) :
-    BaseCardElement(CardElementType::TextBlock, separationStyle, speak),
+    BaseCardElement(CardElementType::TextBlock, spacing, separator, speak),
     m_text(text),
     m_textSize(textSize),
     m_textWeight(textWeight),

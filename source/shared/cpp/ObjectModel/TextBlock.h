@@ -10,7 +10,9 @@ class TextBlock : public BaseCardElement
 {
 public:
     TextBlock();
-    TextBlock(SeparationStyle separationStyle,
+    TextBlock(
+        Spacing spacing, 
+        std::shared_ptr<Separator> separator,
         std::string speak,
         std::string text,
         TextSize textSize,

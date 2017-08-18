@@ -78,7 +78,8 @@ static std::unordered_map<AdaptiveCardSchemaKey, std::string, EnumHash> Adaptive
     { AdaptiveCardSchemaKey::Placeholder, "placeholder" },
     { AdaptiveCardSchemaKey::Right, "right" },
     { AdaptiveCardSchemaKey::SelectAction, "selectAction" },
-    { AdaptiveCardSchemaKey::Separation, "separation" },
+    { AdaptiveCardSchemaKey::SeparatorColor, "separatorColor" },
+    { AdaptiveCardSchemaKey::SeparatorThickness, "separatorThickness" },
     { AdaptiveCardSchemaKey::ShowActionMode, "showActionMode" },
     { AdaptiveCardSchemaKey::ShowCard, "showCard" },
     { AdaptiveCardSchemaKey::ShowCardActionConfig, "showCardActionConfig" },
@@ -88,7 +89,6 @@ static std::unordered_map<AdaptiveCardSchemaKey, std::string, EnumHash> Adaptive
     { AdaptiveCardSchemaKey::SpacingDefinition, "spacingDefinition" },
     { AdaptiveCardSchemaKey::Speak, "speak" },
     { AdaptiveCardSchemaKey::Stretch, "stretch" },
-    { AdaptiveCardSchemaKey::StrongSeparation, "strongSeparation" },
     { AdaptiveCardSchemaKey::Style, "style" },
     { AdaptiveCardSchemaKey::Subtle, "subtle" },
     { AdaptiveCardSchemaKey::SupportsInteractivity, "supportsInteractivity" },
@@ -148,15 +148,36 @@ static std::unordered_map<ActionType, std::string, EnumHash> ActionTypeEnumToNam
 static std::unordered_map<std::string, ActionType, CaseInsensitiveHash, CaseInsensitiveEqualTo>
 ActionTypeNameToEnum = GenerateStringToEnumMap<ActionType>(ActionTypeEnumToName);
 
-static std::unordered_map<SeparationStyle, std::string, EnumHash> SeparationStyleEnumToName =
+static std::unordered_map<Spacing, std::string, EnumHash> SpacingEnumToName =
 {
-    { SeparationStyle::Default, "default" },
-    { SeparationStyle::None, "none" },
-    { SeparationStyle::Strong, "strong" }
+    { Spacing::Default, "default" },
+    { Spacing::None, "none" },
+    { Spacing::Small, "small" },
+    { Spacing::Medium, "medium" },
+    { Spacing::Large, "large" },
+    { Spacing::ExtraLarge, "extraLarge" },
 };
 
-static std::unordered_map<std::string, SeparationStyle, CaseInsensitiveHash, CaseInsensitiveEqualTo>
-SeparationStyleNameToEnum = GenerateStringToEnumMap<SeparationStyle>(SeparationStyleEnumToName);
+static std::unordered_map<std::string, Spacing, CaseInsensitiveHash, CaseInsensitiveEqualTo>
+SpacingNameToEnum = GenerateStringToEnumMap<Spacing>(SpacingEnumToName);
+
+static std::unordered_map<SeparatorColor, std::string, EnumHash> SeparatorColorEnumToName =
+{
+    { SeparatorColor::Default, "default" },
+    { SeparatorColor::Accent, "accent" },
+};
+
+static std::unordered_map<std::string, SeparatorColor, CaseInsensitiveHash, CaseInsensitiveEqualTo>
+SeparatorColorNameToEnum = GenerateStringToEnumMap<SeparatorColor>(SeparatorColorEnumToName);
+
+static std::unordered_map<SeparatorThickness, std::string, EnumHash> SeparatorThicknessEnumToName =
+{
+    { SeparatorThickness::Default, "default" },
+    { SeparatorThickness::Thick, "thick" },
+};
+
+static std::unordered_map<std::string, SeparatorThickness, CaseInsensitiveHash, CaseInsensitiveEqualTo>
+SeparatorThicknessNameToEnum = GenerateStringToEnumMap<SeparatorThickness>(SeparatorThicknessEnumToName);
 
 static std::unordered_map<ImageStyle, std::string, EnumHash> ImageStyleEnumToName =
 {
@@ -440,23 +461,61 @@ ImageSize ImageSizeFromString(const std::string& size)
     return ImageSizeNameToEnum[size];
 }
 
-const std::string SeparationStyleToString(SeparationStyle type)
+const std::string SpacingToString(Spacing color)
 {
-    if (SeparationStyleEnumToName.find(type) == SeparationStyleEnumToName.end())
+    if (SpacingEnumToName.find(color) == SpacingEnumToName.end())
     {
-        throw std::out_of_range("Invalid SeparationStyle type");
+        throw std::out_of_range("Invalid Spacing type");
     }
-    return SeparationStyleEnumToName[type];
+    return SpacingEnumToName[color];
 }
 
-SeparationStyle SeparationStyleFromString(const std::string& style)
+Spacing SpacingFromString(const std::string& color)
 {
-    if (SeparationStyleNameToEnum.find(style) == SeparationStyleNameToEnum.end())
+    if (SpacingNameToEnum.find(color) == SpacingNameToEnum.end())
     {
-        throw std::out_of_range("Invalid SeparationStyle: " + style);
+        throw std::out_of_range("Invalid Spacing: " + color);
     }
 
-    return SeparationStyleNameToEnum[style];
+    return SpacingNameToEnum[color];
+}
+
+const std::string SeparatorColorToString(SeparatorColor color)
+{
+    if (SeparatorColorEnumToName.find(color) == SeparatorColorEnumToName.end())
+    {
+        throw std::out_of_range("Invalid SeparatorColor type");
+    }
+    return SeparatorColorEnumToName[color];
+}
+
+SeparatorColor SeparatorColorFromString(const std::string& color)
+{
+    if (SeparatorColorNameToEnum.find(color) == SeparatorColorNameToEnum.end())
+    {
+        throw std::out_of_range("Invalid SeparatorColor: " + color);
+    }
+
+    return SeparatorColorNameToEnum[color];
+}
+
+const std::string SeparatorThicknessToString(SeparatorThickness thickness)
+{
+    if (SeparatorThicknessEnumToName.find(thickness) == SeparatorThicknessEnumToName.end())
+    {
+        throw std::out_of_range("Invalid SeparatorThickness type");
+    }
+    return SeparatorThicknessEnumToName[thickness];
+}
+
+SeparatorThickness SeparatorThicknessFromString(const std::string& thickness)
+{
+    if (SeparatorThicknessNameToEnum.find(thickness) == SeparatorThicknessNameToEnum.end())
+    {
+        throw std::out_of_range("Invalid SeparatorThickness: " + thickness);
+    }
+
+    return SeparatorThicknessNameToEnum[thickness];
 }
 
 const std::string ImageStyleToString(ImageStyle style)

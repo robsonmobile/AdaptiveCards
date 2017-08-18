@@ -125,7 +125,6 @@
     <ClInclude Include="lib\AdaptiveHttpAction.h" />
     <ClInclude Include="lib\AdaptiveChoiceInput.h" />
     <ClInclude Include="lib\AdaptiveChoiceSetInput.h" />
-    <ClInclude Include="lib\AdaptiveChoiceSetInputConfig.h" />
     <ClInclude Include="lib\AdaptiveColorConfig.h" />
     <ClInclude Include="lib\AdaptiveColorsConfig.h" />
     <ClInclude Include="lib\AdaptiveColumn.h" />
@@ -134,7 +133,6 @@
     <ClInclude Include="lib\AdaptiveColumnSetConfig.h" />
     <ClInclude Include="lib\AdaptiveContainer.h" />
     <ClInclude Include="lib\AdaptiveContainerConfig.h" />
-    <ClInclude Include="lib\AdaptiveDateInputConfig.h" />
     <ClInclude Include="lib\AdaptiveFact.h" />
     <ClInclude Include="lib\AdaptiveFactSet.h" />
     <ClInclude Include="lib\AdaptiveFactSetConfig.h" />
@@ -148,7 +146,6 @@
     <ClInclude Include="lib\AdaptiveTimeInput.h" />
     <ClInclude Include="lib\AdaptiveToggleInput.h" />
     <ClInclude Include="lib\AdaptiveImageSetConfig.h" />
-    <ClInclude Include="lib\AdaptiveNumberInputConfig.h" />
     <ClInclude Include="lib\AdaptiveOpenUrlAction.h" />
     <ClInclude Include="lib\AdaptiveSeparationConfig.h" />
     <ClInclude Include="lib\AdaptiveShowCardAction.h" />
@@ -156,10 +153,7 @@
     <ClInclude Include="lib\AdaptiveSubmitAction.h" />
     <ClInclude Include="lib\AdaptiveTextBlock.h" />
     <ClInclude Include="lib\AdaptiveTextBlockConfig.h" />
-    <ClInclude Include="lib\AdaptiveTextInputConfig.h" />
     <ClInclude Include="lib\AdaptiveTextConfig.h" />
-    <ClInclude Include="lib\AdaptiveTimeInputConfig.h" />
-    <ClInclude Include="lib\AdaptiveToggleInputConfig.h" />
     <ClInclude Include="lib\AsyncOperations.h" />
     <ClInclude Include="lib\DefaultResourceDictionary.h" />
     <ClInclude Include="lib\ErrorHandling.h" />
@@ -183,7 +177,6 @@
     <ClCompile Include="lib\AdaptiveHttpAction.cpp" />
     <ClCompile Include="lib\AdaptiveChoiceInput.cpp" />
     <ClCompile Include="lib\AdaptiveChoiceSetInput.cpp" />
-    <ClCompile Include="lib\AdaptiveChoiceSetInputConfig.cpp" />
     <ClCompile Include="lib\AdaptiveColorConfig.cpp" />
     <ClCompile Include="lib\AdaptiveColorsConfig.cpp" />
     <ClCompile Include="lib\AdaptiveColumn.cpp" />
@@ -192,7 +185,6 @@
     <ClCompile Include="lib\AdaptiveColumnSetConfig.cpp" />
     <ClCompile Include="lib\AdaptiveContainer.cpp" />
     <ClCompile Include="lib\AdaptiveContainerConfig.cpp" />
-    <ClCompile Include="lib\AdaptiveDateInputConfig.cpp" />
     <ClCompile Include="lib\AdaptiveFact.cpp" />
     <ClCompile Include="lib\AdaptiveFactSet.cpp" />
     <ClCompile Include="lib\AdaptiveFactSetConfig.cpp" />
@@ -206,7 +198,6 @@
     <ClCompile Include="lib\AdaptiveTimeInput.cpp" />
     <ClCompile Include="lib\AdaptiveToggleInput.cpp" />
     <ClCompile Include="lib\AdaptiveImageSetConfig.cpp" />
-    <ClCompile Include="lib\AdaptiveNumberInputConfig.cpp" />
     <ClCompile Include="lib\AdaptiveOpenUrlAction.cpp" />
     <ClCompile Include="lib\AdaptiveSeparationConfig.cpp" />
     <ClCompile Include="lib\AdaptiveShowCardAction.cpp" />
@@ -214,10 +205,7 @@
     <ClCompile Include="lib\AdaptiveSubmitAction.cpp" />
     <ClCompile Include="lib\AdaptiveTextBlock.cpp" />
     <ClCompile Include="lib\AdaptiveTextBlockConfig.cpp" />
-    <ClCompile Include="lib\AdaptiveTextInputConfig.cpp" />
     <ClCompile Include="lib\AdaptiveTextConfig.cpp" />
-    <ClCompile Include="lib\AdaptiveTimeInputConfig.cpp" />
-    <ClCompile Include="lib\AdaptiveToggleInputConfig.cpp" />
     <ClCompile Include="lib\ImageLoadTracker.cpp" />
     <ClCompile Include="lib\InputItem.cpp" />
     <ClCompile Include="lib\Util.cpp" />
