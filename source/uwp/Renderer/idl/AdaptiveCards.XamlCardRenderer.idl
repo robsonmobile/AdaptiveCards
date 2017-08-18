@@ -43,6 +43,10 @@ namespace AdaptiveCards
         runtimeclass AdaptiveShowCardActionConfig;
         runtimeclass AdaptiveActionsConfig;
         runtimeclass AdaptiveHostConfig;
+        runtimeclass AdaptiveSpacingConfig;
+        runtimeclass AdaptiveSeparatorColorConfig;
+        runtimeclass AdaptiveSeparatorThicknessConfig;
+
         runtimeclass AdaptiveActionEventArgs;
 
         interface IAdaptiveCardElement;
@@ -80,6 +84,10 @@ namespace AdaptiveCards
         interface IAdaptiveShowCardActionConfig;
         interface IAdaptiveActionsConfig;
         interface IAdaptiveHostConfig;
+        interface IAdaptiveSpacingConfig;
+        interface IAdaptiveSeparatorColorConfig;
+        interface IAdaptiveSeparatorThicknessConfig;
+
         interface IAdaptiveActionEventArgs;
 
         [version(NTDDI_WIN10_RS1)]
@@ -980,6 +988,84 @@ namespace AdaptiveCards
         };
 
         [
+            uuid(0e21ac82-4838-43cb-b7ef-7b023011061b),
+            version(NTDDI_WIN10_RS1),
+            exclusiveto(AdaptiveSpacingConfig)
+        ]
+        interface IAdaptiveSpacingConfig : IInspectable
+        {
+            [propget] HRESULT Small([out, retval] UINT32 *value);
+            [propput] HRESULT Small([in] UINT32 value);
+
+            [propget] HRESULT Default([out, retval] UINT32 *value);
+            [propput] HRESULT Default([in] UINT32 value);
+
+            [propget] HRESULT Medium([out, retval] UINT32 *value);
+            [propput] HRESULT Medium([in] UINT32 value);
+
+            [propget] HRESULT Large([out, retval] UINT32 *value);
+            [propput] HRESULT Large([in] UINT32 value);
+
+            [propget] HRESULT ExtraLarge([out, retval] UINT32 *value);
+            [propput] HRESULT ExtraLarge([in] UINT32 value);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveSpacingConfig
+        {
+            [default] interface IAdaptiveSpacingConfig;
+        };
+
+        [
+            uuid(c34a155d-6913-4f8b-9b94-f4ab8c578aee),
+            version(NTDDI_WIN10_RS1),
+            exclusiveto(AdaptiveSeparatorThicknessConfig)
+        ]
+        interface IAdaptiveSeparatorThicknessConfig : IInspectable
+        {
+            [propget] HRESULT Default([out, retval] UINT32 *value);
+            [propput] HRESULT Default([in] UINT32 value);
+
+            [propget] HRESULT Thick([out, retval] UINT32 *value);
+            [propput] HRESULT Thick([in] UINT32 value);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveSeparatorThicknessConfig
+        {
+            [default] interface IAdaptiveSeparatorThicknessConfig;
+        };
+
+        [
+            uuid(91ae6876-898b-4f34-a546-f9066867842e),
+            version(NTDDI_WIN10_RS1),
+            exclusiveto(AdaptiveSeparatorColorConfig)
+        ]
+        interface IAdaptiveSeparatorColorConfig : IInspectable
+        {
+            [propget] HRESULT Normal([out][retval] Windows.UI.Color* value);
+            [propput] HRESULT Normal([in] Windows.UI.Color value);
+
+            [propget] HRESULT Accent([out][retval] Windows.UI.Color* value);
+            [propput] HRESULT Accent([in] Windows.UI.Color value);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveSeparatorColorConfig
+        {
+            [default] interface IAdaptiveSeparatorColorConfig;
+        };
+
+        [
             uuid(ce5cd318-502c-4017-a076-4f8cdbb0316d),
             version(NTDDI_WIN10_RS1),
             exclusiveto(AdaptiveImageSizesConfig)
@@ -1212,6 +1298,15 @@ namespace AdaptiveCards
 
             [propget] HRESULT MaxActions([out, retval] UINT32 *value);
             [propput] HRESULT MaxActions([in] UINT32 value);
+
+            [propget] HRESULT Spacing([out, retval] AdaptiveSpacingConfig** value);
+            [propput] HRESULT Spacing([in] AdaptiveSpacingConfig* value);
+
+            [propget] HRESULT SeparatorThickness([out, retval] AdaptiveSeparatorThicknessConfig** value);
+            [propput] HRESULT SeparatorThickness([in] AdaptiveSeparatorThicknessConfig* value);
+
+            [propget] HRESULT SeparatorColor([out, retval] AdaptiveSeparatorColorConfig** value);
+            [propput] HRESULT SeparatorColor([in] AdaptiveSeparatorColorConfig* value);
 
             [propget] HRESULT AdaptiveCard([out, retval] AdaptiveCardConfig** value);
             [propput] HRESULT AdaptiveCard([in] AdaptiveCardConfig* value);

@@ -28,6 +28,15 @@ HostConfig HostConfig::Deserialize(const Json::Value& json)
     result.imageSizes = ParseUtil::ExtractJsonValueAndMergeWithDefault<ImageSizesConfig>(
         json, AdaptiveCardSchemaKey::ImageSizes, result.imageSizes, ImageSizesConfig::Deserialize);
 
+    result.separatorThickness = ParseUtil::ExtractJsonValueAndMergeWithDefault<SeparatorThicknessConfig>(
+        json, AdaptiveCardSchemaKey::SeparatorThickness, result.separatorThickness, SeparatorThicknessConfig::Deserialize);
+
+    result.separatorColor = ParseUtil::ExtractJsonValueAndMergeWithDefault<SeparatorColorConfig>(
+        json, AdaptiveCardSchemaKey::SeparatorColor, result.separatorColor, SeparatorColorConfig::Deserialize);
+
+    result.spacing = ParseUtil::ExtractJsonValueAndMergeWithDefault<SpacingConfig>(
+        json, AdaptiveCardSchemaKey::Spacing, result.spacing, SpacingConfig::Deserialize);
+
     result.adaptiveCard = ParseUtil::ExtractJsonValueAndMergeWithDefault<AdaptiveCardConfig>(
         json, AdaptiveCardSchemaKey::AdaptiveCard, result.adaptiveCard, AdaptiveCardConfig::Deserialize);
 
@@ -231,6 +240,54 @@ ActionsConfig ActionsConfig::Deserialize(const Json::Value& json, const ActionsC
 
     result.showCard = ParseUtil::ExtractJsonValueAndMergeWithDefault<ShowCardActionConfig>(
         json, AdaptiveCardSchemaKey::ShowCard, defaultValue.showCard, ShowCardActionConfig::Deserialize);
+
+    return result;
+}
+
+SpacingConfig AdaptiveCards::SpacingConfig::Deserialize(const Json::Value & json, const SpacingConfig & defaultValue)
+{
+    SpacingConfig result;
+
+    result.smallSpacing = ParseUtil::GetUInt(
+        json, AdaptiveCardSchemaKey::Small, defaultValue.smallSpacing);
+
+    result.defaultSpacing = ParseUtil::GetUInt(
+        json, AdaptiveCardSchemaKey::Default, defaultValue.defaultSpacing);
+
+    result.mediumSpacing = ParseUtil::GetUInt(
+        json, AdaptiveCardSchemaKey::Medium, defaultValue.mediumSpacing);
+
+    result.largeSpacing = ParseUtil::GetUInt(
+        json, AdaptiveCardSchemaKey::Large, defaultValue.largeSpacing);
+
+    result.extraLargeSpacing = ParseUtil::GetUInt(
+        json, AdaptiveCardSchemaKey::ExtraLarge, defaultValue.extraLargeSpacing);
+
+    return result;
+}
+
+SeparatorThicknessConfig AdaptiveCards::SeparatorThicknessConfig::Deserialize(const Json::Value & json, const SeparatorThicknessConfig & defaultValue)
+{
+    SeparatorThicknessConfig result;
+
+    result.default = ParseUtil::GetUInt(
+        json, AdaptiveCardSchemaKey::Default, defaultValue.default);
+
+    result.thick = ParseUtil::GetUInt(
+        json, AdaptiveCardSchemaKey::Thick, defaultValue.thick);
+
+    return result;
+}
+
+SeparatorColorConfig AdaptiveCards::SeparatorColorConfig::Deserialize(const Json::Value & json, const SeparatorColorConfig & defaultValue)
+{
+    SeparatorColorConfig result;
+
+    std::string default = ParseUtil::GetString(json, AdaptiveCardSchemaKey::Default);
+    result.default = default == "" ? defaultValue.default: default;
+
+    std::string accent = ParseUtil::GetString(json, AdaptiveCardSchemaKey::Accent);
+    result.accent = accent == "" ? defaultValue.accent : accent;
 
     return result;
 }

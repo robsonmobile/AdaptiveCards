@@ -97,6 +97,7 @@ static std::unordered_map<AdaptiveCardSchemaKey, std::string, EnumHash> Adaptive
     { AdaptiveCardSchemaKey::TextConfig, "textConfig" },
     { AdaptiveCardSchemaKey::TextInput, "textInput" },
     { AdaptiveCardSchemaKey::TextWeight, "weight" },
+    { AdaptiveCardSchemaKey::Thick, "thick" },
     { AdaptiveCardSchemaKey::TimeInput, "timeInput" },
     { AdaptiveCardSchemaKey::Title, "title" },
     { AdaptiveCardSchemaKey::ToggleInput, "toggleInput" },

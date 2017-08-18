@@ -122,6 +122,42 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         return S_OK;
     }
 
+    _Use_decl_annotations_ 
+    HRESULT AdaptiveHostConfig::get_Spacing(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSpacingConfig ** spacingConfigConfig)
+    {
+        return E_NOTIMPL;
+    }
+
+    _Use_decl_annotations_ 
+    HRESULT AdaptiveHostConfig::put_Spacing(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSpacingConfig * spacingConfigConfig)
+    {
+        return E_NOTIMPL;
+    }
+
+    _Use_decl_annotations_ 
+    HRESULT AdaptiveHostConfig::get_SeparatorThickness(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparatorThicknessConfig ** separatorThicknessConfigConfig)
+    {
+        return E_NOTIMPL;
+    }
+
+    _Use_decl_annotations_ 
+    HRESULT AdaptiveHostConfig::put_SeparatorThickness(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparatorThicknessConfig * separatorThicknessConfigConfig)
+    {
+        return E_NOTIMPL;
+    }
+
+    _Use_decl_annotations_ 
+    HRESULT AdaptiveHostConfig::get_SeparatorColor(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparatorColorConfig ** separatorColorConfigConfig)
+    {
+        return E_NOTIMPL;
+    }
+
+    _Use_decl_annotations_ 
+    HRESULT AdaptiveHostConfig::put_SeparatorColor(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparatorColorConfig * separatorColorConfigConfig)
+    {
+        return E_NOTIMPL;
+    }
+
     _Use_decl_annotations_
     HRESULT AdaptiveHostConfig::get_AdaptiveCard(IAdaptiveCardConfig** adaptiveCardConfig)
     {

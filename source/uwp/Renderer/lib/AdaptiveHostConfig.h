@@ -36,20 +36,29 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         IFACEMETHODIMP get_MaxActions(_Out_ UINT32 *maxActions);
         IFACEMETHODIMP put_MaxActions(_In_ UINT32 maxActions);
 
-        IFACEMETHODIMP get_AdaptiveCard(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveCardConfig** adaptiveCardConfigOptions);
-        IFACEMETHODIMP put_AdaptiveCard(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveCardConfig* adaptiveCardConfigOptions);
+        IFACEMETHODIMP get_Spacing(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSpacingConfig** spacingConfigConfig);
+        IFACEMETHODIMP put_Spacing(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSpacingConfig* spacingConfigConfig);
 
-        IFACEMETHODIMP get_ImageSet(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveImageSetConfig** imageSetConfigOptions);
-        IFACEMETHODIMP put_ImageSet(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveImageSetConfig* imageSetConfigOptions);
+        IFACEMETHODIMP get_SeparatorThickness(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparatorThicknessConfig** separatorThicknessConfigConfig);
+        IFACEMETHODIMP put_SeparatorThickness(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparatorThicknessConfig* separatorThicknessConfigConfig);
 
-        IFACEMETHODIMP get_FactSet(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveFactSetConfig** factSetConfigOptions);
-        IFACEMETHODIMP put_FactSet(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveFactSetConfig* factSetConfigOptions);
+        IFACEMETHODIMP get_SeparatorColor(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparatorColorConfig** separatorColorConfigConfig);
+        IFACEMETHODIMP put_SeparatorColor(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparatorColorConfig* separatorColorConfigConfig);
 
-        IFACEMETHODIMP get_Container(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveContainerConfig** containerConfigOptions);
-        IFACEMETHODIMP put_Container(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveContainerConfig* containerConfigOptions);
+        IFACEMETHODIMP get_AdaptiveCard(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveCardConfig** adaptiveCardConfigConfig);
+        IFACEMETHODIMP put_AdaptiveCard(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveCardConfig* adaptiveCardConfigConfig);
 
-        IFACEMETHODIMP get_Actions(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionsConfig** actionsOptionOptions);
-        IFACEMETHODIMP put_Actions(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionsConfig* actionsOptionOptions);
+        IFACEMETHODIMP get_ImageSet(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveImageSetConfig** imageSetConfigConfig);
+        IFACEMETHODIMP put_ImageSet(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveImageSetConfig* imageSetConfigConfig);
+
+        IFACEMETHODIMP get_FactSet(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveFactSetConfig** factSetConfigConfig);
+        IFACEMETHODIMP put_FactSet(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveFactSetConfig* factSetConfigConfig);
+
+        IFACEMETHODIMP get_Container(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveContainerConfig** containerConfigConfig);
+        IFACEMETHODIMP put_Container(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveContainerConfig* containerConfigConfig);
+
+        IFACEMETHODIMP get_Actions(_Out_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionsConfig** actionsOptionConfig);
+        IFACEMETHODIMP put_Actions(_In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveActionsConfig* actionsOptionConfig);
 
     private:
         HostConfig m_sharedHostConfig;

@@ -125,6 +125,7 @@ enum class AdaptiveCardSchemaKey
     TextConfig,
     TextInput,
     TextWeight,
+    Thick,
     TimeInput,
     Title,
     ToggleInput,

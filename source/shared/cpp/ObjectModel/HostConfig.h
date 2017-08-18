@@ -58,6 +58,33 @@ struct TextConfig
     static TextConfig Deserialize(const Json::Value& json, const TextConfig& defaultValue);
 };
 
+struct SpacingConfig
+{
+    unsigned int smallSpacing = 3;
+    unsigned int defaultSpacing = 8;
+    unsigned int mediumSpacing = 20;
+    unsigned int largeSpacing = 30;
+    unsigned int extraLargeSpacing = 40;
+
+    static SpacingConfig Deserialize(const Json::Value& json, const SpacingConfig& defaultValue);
+};
+
+struct SeparatorThicknessConfig
+{
+    unsigned int default = 1;
+    unsigned int thick = 10; //BECKYTODO - get some real numbers
+
+    static SeparatorThicknessConfig Deserialize(const Json::Value& json, const SeparatorThicknessConfig& defaultValue);
+};
+
+struct SeparatorColorConfig
+{
+    std::string default = "#EEEEEE";
+    std::string accent = "#EEEEEE"; //BECKYTODO - get some real numbers
+
+    static SeparatorColorConfig Deserialize(const Json::Value& json, const SeparatorColorConfig& defaultValue);
+};
+
 struct ImageSizesConfig
 {
     unsigned int smallSize = 80;
@@ -126,6 +153,7 @@ struct ActionsConfig
     ActionAlignment actionAlignment = ActionAlignment::Center;
     unsigned int buttonSpacing = 8;
     unsigned int maxActions = 5;
+    Spacing spacing;
 
     static ActionsConfig Deserialize(const Json::Value& json, const ActionsConfig& defaultValue);
 };
@@ -138,6 +166,9 @@ struct HostConfig
     ColorsConfig colors;
     ImageSizesConfig imageSizes;
     unsigned int maxActions = 5;
+    SeparatorThicknessConfig separatorThickness;
+    SeparatorColorConfig separatorColor;
+    SpacingConfig spacing;
     AdaptiveCardConfig adaptiveCard;
     ImageSetConfig imageSet;
     FactSetConfig factSet;
