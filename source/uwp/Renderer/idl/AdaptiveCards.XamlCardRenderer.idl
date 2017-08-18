@@ -26,6 +26,7 @@ namespace AdaptiveCards
         runtimeclass AdaptiveTextInput;
         runtimeclass AdaptiveTimeInput;
         runtimeclass AdaptiveToggleInput;
+        runtimeclass AdaptiveSeparator;
 
         runtimeclass AdaptiveSpacingDefinition;
         runtimeclass AdaptiveFontSizesConfig;
@@ -33,23 +34,14 @@ namespace AdaptiveCards
         runtimeclass AdaptiveColorConfig;
         runtimeclass AdaptiveTextConfig;
         runtimeclass AdaptiveImageSizesConfig;
-        runtimeclass AdaptiveTextBlockConfig;
         runtimeclass AdaptiveImageSetConfig;
-        runtimeclass AdaptiveColumnConfig;
         runtimeclass AdaptiveContainerConfig;
         runtimeclass AdaptiveContainerStyleConfig;
-        runtimeclass AdaptiveColumnSetConfig;
         runtimeclass AdaptiveImageConfig;
         runtimeclass AdaptiveCardConfig;
         runtimeclass AdaptiveFactSetConfig;
         runtimeclass AdaptiveShowCardActionConfig;
         runtimeclass AdaptiveActionsConfig;
-        runtimeclass AdaptiveDateInputConfig;
-        runtimeclass AdaptiveTimeInputConfig;
-        runtimeclass AdaptiveNumberInputConfig;
-        runtimeclass AdaptiveToggleInputConfig;
-        runtimeclass AdaptiveTextInputConfig;
-        runtimeclass AdaptiveChoiceSetInputConfig;
         runtimeclass AdaptiveHostConfig;
         runtimeclass AdaptiveActionEventArgs;
 
@@ -71,6 +63,7 @@ namespace AdaptiveCards
         interface IAdaptiveNumberInput;
         interface IAdaptiveTimeInput;
         interface IAdaptiveToggleInput;
+        interface IAdaptiveSeparator;
 
         interface IAdaptiveSpacingDefinition;
         interface IAdaptiveFontSizesConfig;
@@ -78,23 +71,14 @@ namespace AdaptiveCards
         interface IAdaptiveColorsConfig;
         interface IAdaptiveTextConfig;
         interface IAdaptiveImageSizesConfig;
-        interface IAdaptiveTextBlockConfig;
         interface IAdaptiveImageSetConfig;
-        interface IAdaptiveColumnConfig;
         interface IAdaptiveContainerStyleConfig;
         interface IAdaptiveContainerConfig;
-        interface IAdaptiveColumnSetConfig;
         interface IAdaptiveImageConfig;
         interface IAdaptiveCardConfig;
         interface IAdaptiveFactSetConfig;
         interface IAdaptiveShowCardActionConfig;
         interface IAdaptiveActionsConfig;
-        interface IAdaptiveDateInputConfig;
-        interface IAdaptiveTimeInputConfig;
-        interface IAdaptiveNumberInputConfig;
-        interface IAdaptiveToggleInputConfig;
-        interface IAdaptiveTextInputConfig;
-        interface IAdaptiveChoiceSetInputConfig;
         interface IAdaptiveHostConfig;
         interface IAdaptiveActionEventArgs;
 
@@ -185,6 +169,28 @@ namespace AdaptiveCards
         } ImageSize;
 
         [version(NTDDI_WIN10_RS1)]
+        typedef [v1_enum] enum SeparatorColor {
+            Default = 0,
+            Accent,
+        } SeparatorColor;
+
+        [version(NTDDI_WIN10_RS1)]
+        typedef [v1_enum] enum SeparatorThickness {
+            Default = 0,
+            Thick,
+        } SeparatorThickness;
+
+        [version(NTDDI_WIN10_RS1)]
+        typedef [v1_enum] enum Spacing {
+            Default = 0,
+            None,
+            Small,
+            Medium,
+            Large,
+            ExtraLarge
+        } Spacing;
+
+        [version(NTDDI_WIN10_RS1)]
         typedef [v1_enum] enum ActionsOrientation {
             Vertical = 0,
             Horizontal
@@ -249,6 +255,35 @@ namespace AdaptiveCards
 
             [propget] HRESULT Speak([out, retval] HSTRING* value);
             [propput] HRESULT Speak([in] HSTRING value);
+
+            [propget] HRESULT Spacing([out, retval] Spacing* value);
+            [propput] HRESULT Spacing([in] Spacing value);
+
+            [propget] HRESULT Separator([out, retval] AdaptiveSeparator** value);
+            [propput] HRESULT Separator([in] AdaptiveSeparator* value);
+        };
+
+        [
+            uuid(a2a0727a-e4aa-423d-b5b0-4b85f7a534c4),
+            version(NTDDI_WIN10_RS1),
+            exclusiveto(AdaptiveSeparator)
+        ]
+        interface IAdaptiveSeparator : IInspectable
+        {
+            [propget] HRESULT Color([out, retval] SeparatorColor* value);
+            [propput] HRESULT Color([in] SeparatorColor value);
+
+            [propget] HRESULT Thickness([out, retval] SeparatorThickness* value);
+            [propput] HRESULT Thickness([in] SeparatorThickness value);
+        };
+
+        [
+            version(NTDDI_WIN10_RS1),
+            activatable(NTDDI_WIN10_RS1)
+        ]
+        runtimeclass AdaptiveSeparator
+        {
+            [default] interface IAdaptiveSeparator;
         };
 
         [

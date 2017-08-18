@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "AdaptiveActionsConfig.h"
-#include "AdaptiveSeparationConfig.h"
 #include "AdaptiveShowCardActionConfig.h"
 #include "Util.h"
 
@@ -87,17 +86,5 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     {
         m_sharedActionsConfig.actionsOrientation = static_cast<AdaptiveCards::ActionsOrientation>(value);
         return S_OK;
-    }
-
-    _Use_decl_annotations_
-        HRESULT AdaptiveActionsConfig::get_Separation(IAdaptiveSeparationConfig** separationConfig)
-    {
-        return MakeAndInitialize<AdaptiveSeparationConfig>(separationConfig, m_sharedActionsConfig.separation);
-    }
-
-    _Use_decl_annotations_
-        HRESULT AdaptiveActionsConfig::put_Separation(IAdaptiveSeparationConfig*)
-    {
-        return E_NOTIMPL;
     }
 }}
