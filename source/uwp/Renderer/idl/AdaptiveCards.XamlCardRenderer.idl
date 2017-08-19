@@ -195,7 +195,8 @@ namespace AdaptiveCards
             Small,
             Medium,
             Large,
-            ExtraLarge
+            ExtraLarge,
+            Padding
         } Spacing;
 
         [version(NTDDI_WIN10_RS1)]
@@ -1049,8 +1050,8 @@ namespace AdaptiveCards
         ]
         interface IAdaptiveSeparatorColorConfig : IInspectable
         {
-            [propget] HRESULT Normal([out][retval] Windows.UI.Color* value);
-            [propput] HRESULT Normal([in] Windows.UI.Color value);
+            [propget] HRESULT Default([out][retval] Windows.UI.Color* value);
+            [propput] HRESULT Default([in] Windows.UI.Color value);
 
             [propget] HRESULT Accent([out][retval] Windows.UI.Color* value);
             [propput] HRESULT Accent([in] Windows.UI.Color value);

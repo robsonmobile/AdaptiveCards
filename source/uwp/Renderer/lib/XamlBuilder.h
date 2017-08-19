@@ -59,8 +59,7 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         bool m_enableXamlImageHandling = false;
 
         static Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IUIElement> CreateSeparator(
-            _In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparationConfig* separationConfig,
-            _In_ bool isHorizontal = true);
+            UINT spacing, UINT separatorThickness, ABI::Windows::UI::Color separatorColor, _In_ bool isHorizontal = true);
         static void ApplyMarginToXamlElement(
             _In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSpacingDefinition* spacingDefinition,
             _Inout_ ABI::Windows::UI::Xaml::IFrameworkElement* element);
@@ -113,8 +112,9 @@ namespace AdaptiveCards { namespace XamlCardRenderer
             _In_ bool insertSeparator);
         void GetSeparationConfigForElement(
             _In_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveCardElement* element,
-            _In_ ABI::AdaptiveCards::XamlCardRenderer::SeparationStyle separation,
-            _COM_Outptr_result_maybenull_ ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparationConfig** separationConfig);
+            UINT* spacing,
+            UINT* separatorThickness,
+            ABI::Windows::UI::Color* separatorColor); //BECKYTODO - sal
 
         template<typename T>
         void AddInputItemToVector(

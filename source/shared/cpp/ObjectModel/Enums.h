@@ -253,6 +253,7 @@ enum class Spacing {
     Medium,
     Large,
     ExtraLarge,
+    Padding,
 };
 
 enum class ActionsOrientation {

@@ -71,37 +71,34 @@ namespace AdaptiveCards { namespace XamlCardRenderer
 
     _Use_decl_annotations_
     ComPtr<IUIElement> XamlBuilder::CreateSeparator(
-        ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparationConfig* separationConfig,
+        UINT spacing, 
+        UINT separatorThickness, 
+        ABI::Windows::UI::Color separatorColor,
         bool isHorizontal)
     {
+        // BECKYTODO - handle the no separator cases better...
+
         ComPtr<IGrid> separator = XamlHelpers::CreateXamlClass<IGrid>(HStringReference(RuntimeClass_Windows_UI_Xaml_Controls_Grid));
         ComPtr<IFrameworkElement> separatorAsFrameworkElement;
         THROW_IF_FAILED(separator.As(&separatorAsFrameworkElement));
-        Color lineColor;
-        if (SUCCEEDED(separationConfig->get_LineColor(&lineColor)))
-        {
-            ComPtr<IBrush> lineColorBrush = GetSolidColorBrush(lineColor);
-            ComPtr<IPanel> separatorAsPanel;
-            THROW_IF_FAILED(separator.As(&separatorAsPanel));
-            separatorAsPanel->put_Background(lineColorBrush.Get());
-        }
 
-        UINT32 spacing;
-        THROW_IF_FAILED(separationConfig->get_Spacing(&spacing));
-        UINT32 lineThickness;
-        THROW_IF_FAILED(separationConfig->get_LineThickness(&lineThickness));
-        UINT32 separatorMarginValue = (spacing - lineThickness) / 2;
+        ComPtr<IBrush> lineColorBrush = GetSolidColorBrush(separatorColor);
+        ComPtr<IPanel> separatorAsPanel;
+        THROW_IF_FAILED(separator.As(&separatorAsPanel));
+        separatorAsPanel->put_Background(lineColorBrush.Get());
+
+        UINT32 separatorMarginValue = (spacing - separatorThickness) / 2;
         Thickness margin = { 0, 0, 0, 0 };
 
         if (isHorizontal)
         {
             margin.Top = margin.Bottom = separatorMarginValue;
-            separatorAsFrameworkElement->put_Height(lineThickness);
+            separatorAsFrameworkElement->put_Height(separatorThickness);
         }
         else
         {
             margin.Left = margin.Right = separatorMarginValue;
-            separatorAsFrameworkElement->put_Width(lineThickness);
+            separatorAsFrameworkElement->put_Width(separatorThickness);
 
         }
         THROW_IF_FAILED(separatorAsFrameworkElement->put_Margin(margin));
@@ -537,18 +534,12 @@ namespace AdaptiveCards { namespace XamlCardRenderer
                 // First element does not need a separator added
                 if (currentElement++ > 0)
                 {
-                    ABI::AdaptiveCards::XamlCardRenderer::SeparationStyle separationStyle;
-                    THROW_IF_FAILED(element->get_Separation(&separationStyle));
-                    if (separationStyle != ABI::AdaptiveCards::XamlCardRenderer::SeparationStyle::None)
-                    {
-                        ComPtr<IAdaptiveSeparationConfig> separationConfig;
-                        GetSeparationConfigForElement(element, separationStyle, &separationConfig);
-                        if (separationConfig != nullptr)
-                        {
-                            auto separator = CreateSeparator(separationConfig.Get());
-                            XamlHelpers::AppendXamlElementToPanel(separator.Get(), parentPanel);
-                        }
-                    }
+                    UINT spacing;
+                    UINT separatorThickness;
+                    Color separatorColor;
+                    GetSeparationConfigForElement(element, &spacing, &separatorThickness, &separatorColor); //BECKYTODO - handle no separator
+                    auto separator = CreateSeparator(spacing, separatorThickness, separatorColor);
+                    XamlHelpers::AppendXamlElementToPanel(separator.Get(), parentPanel);
                 }
                 ComPtr<IUIElement> newControl;
                 m_adaptiveElementBuilder[elementType](element, inputElements, &newControl);
@@ -636,10 +627,11 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         // Create a separator between the body and the actions
         if (insertSeparator)
         {
-            ComPtr<IAdaptiveSeparationConfig> separationConfig;
-            THROW_IF_FAILED(actionsConfig->get_Separation(&separationConfig));
+            UINT spacing;
+            THROW_IF_FAILED(actionsConfig->get_ButtonSpacing(&spacing)); //BECKYTODO - this is extremely bogus.  Fix this up.
 
-            auto separator = CreateSeparator(separationConfig.Get());
+            Color color = { 0 };
+            auto separator = CreateSeparator(spacing, 0, color);
             XamlHelpers::AppendXamlElementToPanel(separator.Get(), parentPanel);
         }
 
@@ -881,139 +873,86 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     _Use_decl_annotations_
     void XamlBuilder::GetSeparationConfigForElement(
         IAdaptiveCardElement* cardElement,
-        ABI::AdaptiveCards::XamlCardRenderer::SeparationStyle separation,
-        IAdaptiveSeparationConfig** separationConfig)
+        UINT* spacing,
+        UINT* separatorThickness,
+        Color* separatorColor)
     {
-        ComPtr<IAdaptiveCardElement> localCardElement(cardElement);
-        ComPtr<IAdaptiveSeparationConfig> localSeparationConfig = nullptr;
-        switch (separation)
-        {
-        case ABI::AdaptiveCards::XamlCardRenderer::SeparationStyle::Strong:
-            THROW_IF_FAILED(m_hostConfig->get_StrongSeparation(&localSeparationConfig));
-            break;
-        case ABI::AdaptiveCards::XamlCardRenderer::SeparationStyle::Default:
-            ABI::AdaptiveCards::XamlCardRenderer::ElementType elementType;
-            THROW_IF_FAILED(cardElement->get_ElementType(&elementType));
+        ComPtr<IAdaptiveSpacingConfig> spacingConfig;
+        THROW_IF_FAILED(m_hostConfig->get_Spacing(&spacingConfig));
 
-            switch (elementType)
-            {
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::Container:
-            {
-                ComPtr<IAdaptiveContainerConfig> containerConfig;
-                THROW_IF_FAILED(m_hostConfig->get_Container(&containerConfig));
-                THROW_IF_FAILED(containerConfig->get_Separation(&localSeparationConfig));
+        ABI::AdaptiveCards::XamlCardRenderer::Spacing elementSpacing;
+        THROW_IF_FAILED(cardElement->get_Spacing(&elementSpacing));
+
+        UINT localSpacing;
+        switch (elementSpacing)
+        {
+            case ABI::AdaptiveCards::XamlCardRenderer::Spacing::None:
+                localSpacing = 0;
                 break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::Column:
-            {
-                ComPtr<IAdaptiveColumnConfig> columnConfig;
-                THROW_IF_FAILED(m_hostConfig->get_Column(&columnConfig));
-                THROW_IF_FAILED(columnConfig->get_Separation(&localSeparationConfig));
+            case ABI::AdaptiveCards::XamlCardRenderer::Spacing::Small:
+                THROW_IF_FAILED(spacingConfig->get_Small(&localSpacing));
                 break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::ColumnSet:
-            {
-                ComPtr<IAdaptiveColumnSetConfig> columnSetConfig;
-                THROW_IF_FAILED(m_hostConfig->get_ColumnSet(&columnSetConfig));
-                THROW_IF_FAILED(columnSetConfig->get_Separation(&localSeparationConfig));
+            case ABI::AdaptiveCards::XamlCardRenderer::Spacing::Default:
+                THROW_IF_FAILED(spacingConfig->get_Default(&localSpacing));
                 break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::FactSet:
-            {
-                ComPtr<IAdaptiveFactSetConfig> factSetConfig;
-                THROW_IF_FAILED(m_hostConfig->get_FactSet(&factSetConfig));
-                THROW_IF_FAILED(factSetConfig->get_Separation(&localSeparationConfig));
+            case ABI::AdaptiveCards::XamlCardRenderer::Spacing::Medium:
+                THROW_IF_FAILED(spacingConfig->get_Medium(&localSpacing));
                 break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::Image:
-            {
-                ComPtr<IAdaptiveImageConfig> imageConfig;
-                THROW_IF_FAILED(m_hostConfig->get_Image(&imageConfig));
-                THROW_IF_FAILED(imageConfig->get_Separation(&localSeparationConfig));
+            case ABI::AdaptiveCards::XamlCardRenderer::Spacing::Large:
+                THROW_IF_FAILED(spacingConfig->get_Large(&localSpacing));
                 break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::ImageSet:
-            {
-                ComPtr<IAdaptiveImageSetConfig> imageSetConfig;
-                THROW_IF_FAILED(m_hostConfig->get_ImageSet(&imageSetConfig));
-                THROW_IF_FAILED(imageSetConfig->get_Separation(&localSeparationConfig));
+            case ABI::AdaptiveCards::XamlCardRenderer::Spacing::ExtraLarge:
+                THROW_IF_FAILED(spacingConfig->get_ExtraLarge(&localSpacing));
                 break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::TextBlock:
-            {
-                ComPtr<IAdaptiveTextBlock> asTextBlock;
-                THROW_IF_FAILED(localCardElement.As(&asTextBlock));
-                ComPtr<IAdaptiveTextBlockConfig> textBlockConfig;
-                THROW_IF_FAILED(m_hostConfig->get_TextBlock(&textBlockConfig));
-                ABI::AdaptiveCards::XamlCardRenderer::TextSize size;
-                THROW_IF_FAILED(asTextBlock->get_Size(&size));
-                switch (size)
-                {
-                case ABI::AdaptiveCards::XamlCardRenderer::TextSize::Small:
-                    THROW_IF_FAILED(textBlockConfig->get_SmallSeparation(&localSeparationConfig));
-                    break;
-                case ABI::AdaptiveCards::XamlCardRenderer::TextSize::Normal:
-                    THROW_IF_FAILED(textBlockConfig->get_NormalSeparation(&localSeparationConfig));
-                    break;
-                case ABI::AdaptiveCards::XamlCardRenderer::TextSize::Medium:
-                    THROW_IF_FAILED(textBlockConfig->get_MediumSeparation(&localSeparationConfig));
-                    break;
-                case ABI::AdaptiveCards::XamlCardRenderer::TextSize::Large:
-                    THROW_IF_FAILED(textBlockConfig->get_LargeSeparation(&localSeparationConfig));
-                    break;
-                case ABI::AdaptiveCards::XamlCardRenderer::TextSize::ExtraLarge:
-                    THROW_IF_FAILED(textBlockConfig->get_ExtraLargeSeparation(&localSeparationConfig));
-                    break;
-                }
+            case ABI::AdaptiveCards::XamlCardRenderer::Spacing::Padding:
+                localSpacing = 0; // BECKYTODO
                 break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::ChoiceSetInput:
-            {
-                ComPtr<IAdaptiveChoiceSetInputConfig> choiceSetConfig;
-                THROW_IF_FAILED(m_hostConfig->get_ChoiceSetInput(&choiceSetConfig));
-                THROW_IF_FAILED(choiceSetConfig->get_Separation(&localSeparationConfig));
-                break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::DateInput:
-            {
-                ComPtr<IAdaptiveDateInputConfig> dateOptions;
-                THROW_IF_FAILED(m_hostConfig->get_DateInput(&dateOptions));
-                THROW_IF_FAILED(dateOptions->get_Separation(&localSeparationConfig));
-                break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::NumberInput:
-            {
-                ComPtr<IAdaptiveNumberInputConfig> numberOptions;
-                THROW_IF_FAILED(m_hostConfig->get_NumberInput(&numberOptions));
-                THROW_IF_FAILED(numberOptions->get_Separation(&localSeparationConfig));
-                break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::TextInput:
-            {
-                ComPtr<IAdaptiveTextInputConfig> textConfig;
-                THROW_IF_FAILED(m_hostConfig->get_TextInput(&textConfig));
-                THROW_IF_FAILED(textConfig->get_Separation(&localSeparationConfig));
-                break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::TimeInput:
-            {
-                ComPtr<IAdaptiveTimeInputConfig> timeOptions;
-                THROW_IF_FAILED(m_hostConfig->get_TimeInput(&timeOptions));
-                THROW_IF_FAILED(timeOptions->get_Separation(&localSeparationConfig));
-                break;
-            }
-            case ABI::AdaptiveCards::XamlCardRenderer::ElementType::ToggleInput:
-            {
-                ComPtr<IAdaptiveToggleInputConfig> toggleOptions;
-                THROW_IF_FAILED(m_hostConfig->get_ToggleInput(&toggleOptions));
-                THROW_IF_FAILED(toggleOptions->get_Separation(&localSeparationConfig));
-                break;
-            }
-            }
-        default:
-            break;
         }
-        THROW_IF_FAILED(localSeparationConfig.CopyTo(separationConfig));
+
+        ComPtr<IAdaptiveSeparator> elementSeparator;
+        THROW_IF_FAILED(cardElement->get_Separator(&elementSeparator));
+
+        Color localColor;
+        UINT localThickness = 0;
+        if (elementSeparator != nullptr)
+        {
+            ComPtr<IAdaptiveSeparatorColorConfig> separatorColorConfig;
+            THROW_IF_FAILED(m_hostConfig->get_SeparatorColor(&separatorColorConfig));
+
+            ABI::AdaptiveCards::XamlCardRenderer::SeparatorColor elementSeparatorColor;
+            elementSeparator->get_Color(&elementSeparatorColor);
+
+            switch (elementSeparatorColor)
+            {
+            case ABI::AdaptiveCards::XamlCardRenderer::SeparatorColor::Default:
+                THROW_IF_FAILED(separatorColorConfig->get_Default(&localColor));
+                break;
+            case ABI::AdaptiveCards::XamlCardRenderer::SeparatorColor::Accent:
+                THROW_IF_FAILED(separatorColorConfig->get_Accent(&localColor));
+                break;
+            }
+
+            ComPtr<IAdaptiveSeparatorThicknessConfig> separatorThicknessConfig;
+            THROW_IF_FAILED(m_hostConfig->get_SeparatorThickness(&separatorThicknessConfig));
+
+            ABI::AdaptiveCards::XamlCardRenderer::SeparatorThickness elementSeparatorThickness;
+            elementSeparator->get_Thickness(&elementSeparatorThickness);
+
+            UINT localThickness;
+            switch (elementSeparatorThickness)
+            {
+            case ABI::AdaptiveCards::XamlCardRenderer::SeparatorThickness::Default:
+                THROW_IF_FAILED(separatorThicknessConfig->get_Default(&localThickness));
+                break;
+            case ABI::AdaptiveCards::XamlCardRenderer::SeparatorThickness::Thick:
+                THROW_IF_FAILED(separatorThicknessConfig->get_Thick(&localThickness));
+                break;
+            }
+        }
+
+        *spacing = localSpacing;
+        *separatorThickness = localThickness;
+        *separatorColor = localColor;
     }
 
     _Use_decl_annotations_
@@ -1476,25 +1415,23 @@ namespace AdaptiveCards { namespace XamlCardRenderer
             if (currentColumn > 0)
             {
                 // Add Separator to the columnSet
-                ABI::AdaptiveCards::XamlCardRenderer::SeparationStyle separation;
-                THROW_IF_FAILED(columnAsCardElement->get_Separation(&separation));
-                if (separation != ABI::AdaptiveCards::XamlCardRenderer::SeparationStyle::None)
-                {
-                    ComPtr<IAdaptiveSeparationConfig> separationConfig;
-                    GetSeparationConfigForElement(columnAsCardElement.Get(), separation, &separationConfig);
-                    if (separationConfig != nullptr)
-                    {
-                        //Create a new ColumnDefinition for the separator
-                        ComPtr<IColumnDefinition> separatorColumnDefinition = XamlHelpers::CreateXamlClass<IColumnDefinition>(HStringReference(RuntimeClass_Windows_UI_Xaml_Controls_ColumnDefinition));
-                        THROW_IF_FAILED(separatorColumnDefinition->put_Width({ 1.0, GridUnitType::GridUnitType_Auto }));
-                        THROW_IF_FAILED(columnDefinitions->Append(separatorColumnDefinition.Get()));
+                UINT spacing;
+                UINT separatorThickness;
+                Color separatorColor;
+                GetSeparationConfigForElement(columnAsCardElement.Get(), &spacing, &separatorThickness, &separatorColor);
 
-                        auto separator = CreateSeparator(separationConfig.Get(), false);
-                        ComPtr<IFrameworkElement> separatorAsFrameworkElement;
-                        THROW_IF_FAILED(separator.As(&separatorAsFrameworkElement));
-                        gridStatics->SetColumn(separatorAsFrameworkElement.Get(), currentColumn++);
-                        XamlHelpers::AppendXamlElementToPanel(separator.Get(), gridAsPanel.Get());
-                    }
+                if (TRUE) // BECKYTODO = Handle no separator
+                {
+                    //Create a new ColumnDefinition for the separator
+                    ComPtr<IColumnDefinition> separatorColumnDefinition = XamlHelpers::CreateXamlClass<IColumnDefinition>(HStringReference(RuntimeClass_Windows_UI_Xaml_Controls_ColumnDefinition));
+                    THROW_IF_FAILED(separatorColumnDefinition->put_Width({ 1.0, GridUnitType::GridUnitType_Auto }));
+                    THROW_IF_FAILED(columnDefinitions->Append(separatorColumnDefinition.Get()));
+
+                    auto separator = CreateSeparator(spacing, separatorThickness, separatorColor, false);
+                    ComPtr<IFrameworkElement> separatorAsFrameworkElement;
+                    THROW_IF_FAILED(separator.As(&separatorAsFrameworkElement));
+                    gridStatics->SetColumn(separatorAsFrameworkElement.Get(), currentColumn++);
+                    XamlHelpers::AppendXamlElementToPanel(separator.Get(), gridAsPanel.Get());
                 }
             }
 
