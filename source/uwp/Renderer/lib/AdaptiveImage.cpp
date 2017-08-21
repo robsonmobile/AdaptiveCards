@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "AdaptiveImage.h"
+#include "AdaptiveSeparator.h"
 
 #include "Util.h"
 #include "XamlCardRendererComponent.h"
@@ -146,7 +147,13 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     _Use_decl_annotations_
     HRESULT AdaptiveImage::get_Separator(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparator ** separator)
     {
-        return E_NOTIMPL;
+        *separator = nullptr;
+        auto sharedSeparator = m_sharedImage->GetSeparator();
+        if (sharedSeparator != nullptr)
+        {
+            return MakeAndInitialize<AdaptiveSeparator>(separator, m_sharedImage->GetSeparator());
+        }
+        return S_OK;
     }
 
     _Use_decl_annotations_

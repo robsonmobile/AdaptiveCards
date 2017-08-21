@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "AdaptiveSeparator.h"
 #include "AdaptiveTextBlock.h"
 #include "Util.h"
 #include <windows.foundation.collections.h>
@@ -163,7 +164,13 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     _Use_decl_annotations_
     HRESULT AdaptiveTextBlock::get_Separator(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparator ** separator)
     {
-        return E_NOTIMPL;
+        *separator = nullptr;
+        auto sharedSeparator = m_sharedTextBlock->GetSeparator();
+        if (sharedSeparator != nullptr)
+        {
+            return MakeAndInitialize<AdaptiveSeparator>(separator, m_sharedTextBlock->GetSeparator());
+        }
+        return S_OK;
     }
 
     _Use_decl_annotations_

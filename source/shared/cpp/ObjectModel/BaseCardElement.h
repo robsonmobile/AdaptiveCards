@@ -60,6 +60,16 @@ std::shared_ptr<T> BaseCardElement::Deserialize(const Json::Value& json)
     baseCardElement->SetSpacing(
             ParseUtil::GetEnumValue<Spacing>(json, AdaptiveCardSchemaKey::Spacing, Spacing::Default, SpacingFromString)); 
     
+    /*
+    const std::string propertyName = AdaptiveCardSchemaKeyToString(key);
+    auto propertyValue = json.get(propertyName, Json::Value());
+
+
+    auto propertyValue = json.get(AdaptiveCardSchemaKey::Separator, Json::Value());
+
+    ParseUtil::GetElementCollection(json, AdaptiveCardSchemaKey::Separator, )
+
+        */
     //BECKYTODO - Separator
 
     return cardElement;

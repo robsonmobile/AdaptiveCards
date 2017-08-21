@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "AdaptiveColumnSet.h"
+#include "AdaptiveSeparator.h"
 
 #include "Util.h"
 #include "Vector.h"
@@ -64,7 +65,13 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     _Use_decl_annotations_
     HRESULT AdaptiveColumnSet::get_Separator(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparator ** separator)
     {
-        return E_NOTIMPL;
+        *separator = nullptr;
+        auto sharedSeparator = m_sharedColumnSet->GetSeparator();
+        if (sharedSeparator != nullptr)
+        {
+            return MakeAndInitialize<AdaptiveSeparator>(separator, m_sharedColumnSet->GetSeparator());
+        }
+        return S_OK;
     }
 
     _Use_decl_annotations_

@@ -42,6 +42,10 @@
     <ClCompile Include="lib\AdaptiveFontSizesConfig.cpp" />
     <ClCompile Include="lib\AdaptiveImageSizesConfig.cpp" />
     <ClCompile Include="lib\AdaptiveShowCardActionConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveSpacingConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveSeparatorThicknessConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveSeparatorColorConfig.cpp" />
+    <ClCompile Include="lib\AdaptiveSeparator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\AdaptiveCard.h" />
@@ -93,6 +97,10 @@
     <ClInclude Include="lib\AdaptiveFontSizesConfig.h" />
     <ClInclude Include="lib\AdaptiveShowCardActionConfig.h" />
     <ClInclude Include="lib\AdaptiveImageSizesConfig.h" />
+    <ClInclude Include="lib\AdaptiveSpacingConfig.h" />
+    <ClInclude Include="lib\AdaptiveSeparatorThicknessConfig.h" />
+    <ClInclude Include="lib\AdaptiveSeparatorColorConfig.h" />
+    <ClInclude Include="lib\AdaptiveSeparator.h" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="idl\AdaptiveCards.XamlCardRenderer.idl" />

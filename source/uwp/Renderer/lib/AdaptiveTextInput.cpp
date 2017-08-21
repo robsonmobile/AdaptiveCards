@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "AdaptiveTextInput.h"
+#include "AdaptiveSeparator.h"
+
 #include "Util.h"
 #include <windows.foundation.collections.h>
 #include "XamlCardRendererComponent.h"
@@ -135,7 +137,13 @@ namespace AdaptiveCards { namespace XamlCardRenderer
     _Use_decl_annotations_
     HRESULT AdaptiveTextInput::get_Separator(ABI::AdaptiveCards::XamlCardRenderer::IAdaptiveSeparator ** separator)
     {
-        return E_NOTIMPL;
+        *separator = nullptr;
+        auto sharedSeparator = m_sharedTextInput->GetSeparator();
+        if (sharedSeparator != nullptr)
+        {
+            return MakeAndInitialize<AdaptiveSeparator>(separator, m_sharedTextInput->GetSeparator());
+        }
+        return S_OK;
     }
 
     _Use_decl_annotations_

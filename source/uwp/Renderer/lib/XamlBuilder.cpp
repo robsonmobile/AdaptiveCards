@@ -912,7 +912,7 @@ namespace AdaptiveCards { namespace XamlCardRenderer
         ComPtr<IAdaptiveSeparator> elementSeparator;
         THROW_IF_FAILED(cardElement->get_Separator(&elementSeparator));
 
-        Color localColor;
+        Color localColor = { 0 };
         UINT localThickness = 0;
         if (elementSeparator != nullptr)
         {
