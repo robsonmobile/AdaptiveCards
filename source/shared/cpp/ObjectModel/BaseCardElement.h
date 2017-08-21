@@ -59,12 +59,14 @@ std::shared_ptr<T> BaseCardElement::Deserialize(const Json::Value& json)
     baseCardElement->SetSpeak(ParseUtil::GetString(json, AdaptiveCardSchemaKey::Speak));
     baseCardElement->SetSpacing(
             ParseUtil::GetEnumValue<Spacing>(json, AdaptiveCardSchemaKey::Spacing, Spacing::Default, SpacingFromString)); 
-    
+  
+    Json::Value separatorJson = json.get(AdaptiveCardSchemaKeyToString(AdaptiveCardSchemaKey::Separator), Json::Value());
+    if (!separatorJson.empty())
+    {
+        baseCardElement->SetSeparator(Separator::Deserialize(separatorJson));
+    }
+
     /*
-    const std::string propertyName = AdaptiveCardSchemaKeyToString(key);
-    auto propertyValue = json.get(propertyName, Json::Value());
-
-
     auto propertyValue = json.get(AdaptiveCardSchemaKey::Separator, Json::Value());
 
     ParseUtil::GetElementCollection(json, AdaptiveCardSchemaKey::Separator, )

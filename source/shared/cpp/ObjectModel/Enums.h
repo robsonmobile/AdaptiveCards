@@ -106,6 +106,7 @@ enum class AdaptiveCardSchemaKey
     Placeholder,
     Right,
     SelectAction,
+    Separator,
     SeparatorColor,
     SeparatorThickness,
     ShowActionMode,
